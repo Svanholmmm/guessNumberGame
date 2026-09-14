@@ -4,6 +4,7 @@ const lblMessage = document.querySelector(".message");
 const lblNumber = document.querySelector(".number");
 const lblScore = document.querySelector(".score");
 const inpGuess = document.querySelector(".guess");
+const inpHint = document.querySelector(".hint");
 
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
 lblNumber.textContent = "?";
@@ -32,4 +33,19 @@ function testNumber() {
     }
 }
 
+function hint(){
+    console.log(secretNumber)
+    lblMessage.textContent = secretNumber;
+}
+function again(){
+    score = 20
+    lblNumber.textContent = "?";
+    lblMessage.textContent = "Start guessing...";
+    lblScore.textContent = score;
+    inpGuess.value = "";
+}
+
+
 document.querySelector(".check").addEventListener("click", testNumber);
+document.querySelector(".hint").addEventListener("click", hint);
+document.querySelector(".again").addEventListener("click", again)
